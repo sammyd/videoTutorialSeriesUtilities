@@ -2,7 +2,7 @@
 
 # Need two parameters
 if [ $# -ne 2 ]; then
-  echo "Usage: $0 <path to book directory> <path to output dir>"
+  echo "Usage: $0 <path to videos directory> <path to output dir>"
   echo "    No spaces or such funny characters are allowed."
   exit 1
 fi
