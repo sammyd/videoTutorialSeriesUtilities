@@ -1,11 +1,14 @@
 #!/bin/bash
 
 # Need two parameters
-if [ $# -ne 2 ]; then
-  echo "Usage: $0 <path to videos directory> <path to output dir>"
+if [ $# -ne 3 ]; then
+  echo "Usage: $0 <path to videos directory> <path to output dir> <prefix>"
   echo "    No spaces or such funny characters are allowed."
   exit 1
 fi
+
+# Prefix
+prefix="$3"
 
 # Location for the output
 stagingDir="$2"
@@ -44,8 +47,8 @@ do
   for projectDir in */
   do
     projDir=`basename "$projectDir"`
-    echo "Zipping $projDir"
-    zip -r "$projDir.zip" "$projDir"
+    echo "Zipping $projDir as"
+    zip -r "${prefix}_${projDir}.zip" "$projDir"
   done
   popd
 done
